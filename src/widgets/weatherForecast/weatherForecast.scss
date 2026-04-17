@@ -1,0 +1,10 @@
+.weather-forecast{
+    &__wrapper{
+         background-color: var(--bg-color-primary);
+    border-radius: var(--br-main);
+    width: 100%;
+    height: auto;
+    padding: 1.5rem;
+    grid-column: span 2;
+    }
+}

@@ -1,0 +1,37 @@
+.theme{
+    &__wrapper{
+        position: relative;
+display: flex;
+align-items: center;
+justify-content: space-around;
+    flex-shrink: 0;
+width: 104px;
+height: 56px;
+background-color: var(--bg-color-primary);
+border-radius: var(--br);
+
+
+    }
+    &__input{
+        opacity: 0;
+        width: 0;
+        height: 0;
+        margin: 0;
+        position: absolute;
+        
+    }
+    &__slider{
+        display: inline-block;
+        position: absolute;
+        cursor: pointer;
+        width: 56px;
+        height: 56px;
+        background-color: rgba(131, 129, 129, 0.253);
+        border-radius: var(--br);
+        left: 0;
+        transition: transform 0.3s ease;
+    }
+&__input:checked + &__slider{
+    transform: translateX(48px);
+}
+}

@@ -1,0 +1,13 @@
+.weather-page{
+    &__container{
+        
+    }
+    &__wrapper{
+        display: grid;
+        grid-template-columns: repeat(2,auto);
+        justify-content: center;
+        gap: 1.5rem;
+        width: auto;
+        margin-top: 1.5rem;
+    }
+}
