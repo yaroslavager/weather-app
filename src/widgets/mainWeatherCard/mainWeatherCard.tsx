@@ -1,13 +1,21 @@
 import { useWeatherStore } from "../../features/search/modal/store";
+import { useEffect } from "react";
 import "./mainWeatherCard.scss";
 
 function MainWeatherCard() {
+  const fetchWeather = useWeatherStore(state=>state.fetchWeather)
+useEffect(()=>{
+  fetchWeather("Tbilisi")
+
+},[]);
+
   const data=useWeatherStore(state=> state.data)
    if(!data) return 
   const date=new Date(data.forecast.forecastday[0].date)
   const day= date.toLocaleDateString("en-US", {weekday: "long"})
  
   return (
+    
     <section className="main-weather-card__wrapper">
       <div className="main-weather-card__place">
         <svg
