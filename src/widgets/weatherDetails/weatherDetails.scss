@@ -15,5 +15,27 @@
     flex-direction: row;
     gap: 1.2rem;
 }
+&__grid{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 1.2rem;
+   
+}
+&__info{
+    display: flex;
+    flex-direction: row;
+    gap: 0.8rem;
+    align-items: center;
+}
+&__info-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+     border-radius: var(--br);
+    background-color: rgba(202, 200, 200, 0.568);
+    min-width: 157px;
+    min-height: 134px;
+}
 }
 
