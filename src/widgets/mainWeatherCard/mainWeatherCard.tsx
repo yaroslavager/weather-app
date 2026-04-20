@@ -3,11 +3,6 @@ import { useEffect } from "react";
 import "./mainWeatherCard.scss";
 
 function MainWeatherCard() {
-  const fetchWeather = useWeatherStore(state=>state.fetchWeather)
-useEffect(()=>{
-  fetchWeather("Tbilisi")
-
-},[]);
 
   const data=useWeatherStore(state=> state.data)
    if(!data) return 
