@@ -1,6 +1,12 @@
+import { useWeatherStore } from "../../features/search/modal/store";
 import "./mainWeatherCard.scss";
 
 function MainWeatherCard() {
+  const data=useWeatherStore(state=> state.data)
+   if(!data) return 
+  const date=new Date(data.forecast.forecastday[0].date)
+  const day= date.toLocaleDateString("en-US", {weekday: "long"})
+ 
   return (
     <section className="main-weather-card__wrapper">
       <div className="main-weather-card__place">
@@ -16,23 +22,23 @@ function MainWeatherCard() {
             fill="gray"
           />
         </svg>
-        <span>place</span>
+       { <span>{data.location.country}, {data.location.name}</span>}
       </div>
       <div className="main-weather-card__info-wrapper">
         <div className="main-weather-card__left">
-          <h2>Day of the week</h2>
+          <h2>{day}</h2>
           <span>date</span>
         </div>
         <div className="main-weather-card__right">
-          <img src="dsdd" alt="img" /> 
+          <img className="main-weather-card__icon" src={data.current.condition.icon} /> 
           <div className="main-weather-card__degrees-wrapper">
           <div className="main-weather-card__degrees">
-            <p className="main-weather-card__main-degree">28&deg;C</p>{" "}
-            <p className="main-weather-card__second-degree">/24&deg;C</p>
+            <p className="main-weather-card__main-degree">{Math.round(data.current.temp_c)}&deg;C</p>{" "}
+            <p className="main-weather-card__second-degree">{Math.round(data.forecast.forecastday[0].day.maxtemp_c)}&deg; / {Math.round(data.forecast.forecastday[0].day.mintemp_c)} &deg;C</p>
           </div>{" "}
           <div className="main-weather-card__conditions">
-            <p>Heavy Rain</p>
-            <p>Feels like 31&deg;</p>
+            <p>{data.current.condition.text}</p>
+            <p>Feels like {Math.round(data.current.feelslike_c)}&deg;</p>
           </div>
          </div> 
         </div>

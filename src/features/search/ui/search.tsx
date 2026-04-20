@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useWeatherStore } from "../modal/store";
 import "./search.scss";
 
 function Search() {
@@ -6,9 +7,17 @@ function Search() {
 const changeInput=(e)=>{
     setValue(e.target.value)
 }
+const handleSubmit=(e)=>{
+e.preventDefault()
+if(!inputValue.trim()) return
+fetchWeather(inputValue)
+
+}
 console.log(inputValue)
+const fetchWeather=useWeatherStore(state=>state.fetchWeather)
   return (
-    <>
+    <form onSubmit={handleSubmit}>
+
       <label className="search__input-wrapper" htmlFor="input">
         <svg
           className="search__icon"
@@ -33,7 +42,9 @@ console.log(inputValue)
           placeholder="Search your location"
         />
       </label>
-    </>
+
+
+    </form>
   );
 }
 
