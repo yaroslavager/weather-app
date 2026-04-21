@@ -1,22 +1,39 @@
 .main-weather-card {
   &__wrapper {
     background-color: var(--bg-color-primary);
+    // border: 1px solid var(--br-color);
     border-radius: var(--br-main);
-    width: 556px;
+    width: auto;
     height: auto;
     padding: 1.5rem;
   }
   &__place {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+    display: inline-block;
+    text-align: center;
+    padding: 0.6rem 1rem;
+   
+      border: 1px solid var(--br-color);
+    border-radius: var(--br);
+  }
+  &__place-icon{
+    width: 24px;
+   vertical-align: middle;
+   margin-right: 0.5rem;
   }
   &__info-wrapper{
     display: flex;
+    width: auto;
+    gap: 2rem;
+    padding-top: 1.5rem;
   }
   &__right{
     display: flex;
-
+    gap: 2rem;
+padding-top: 3rem;
+  }
+  &__icon{
+    width: 120px;
+    height: 120px;
   }
   &__degrees-wrapper{
     display: flex;
@@ -29,6 +46,11 @@
   
   }
   &__main-degree{
-    font-size: 40px
+    font-size: 50px;
+    font-weight: bold;
+  }
+  &__conditions-title{
+    font-weight: bold;
+    padding-bottom: 0.5rem;
   }
 }

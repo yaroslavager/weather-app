@@ -1,35 +1,128 @@
 import { useWeatherStore } from "../../features/search/modal/store";
 
 import "./weatherDetails.scss";
+import { getPreasureStatus } from "./lib/getPreasureStatus";
+import { getUvStatus } from "./lib/getUvStatus";
+import { getHumidityStatus } from "./lib/getHumidityStatus";
 
 function WeatherDetails() {
+ 
   const data = useWeatherStore((state) => state.data);
   if (!data) return;
   return (
     <section className="weather-details__main-wrapper">
       <h3>Today`s Highlight</h3>
       <div className="weather-details__wrapper">
-        <div className="weather-details__left-wrapper">
+        <div className="weather-details__grid">
           <div className="weather-details__info-wrapper">
-             <div className="weather-details__info">
-           img <p className="weather-details__title">Wind</p>
+            <div className="weather-details__info">
+              <svg
+                width="22"
+                height="20"
+                viewBox="0 0 22 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M1.75 5.75H8.25C8.74445 5.75 9.2278 5.60338 9.63893 5.32867C10.05 5.05397 10.3705 4.66352 10.5597 4.20671C10.7489 3.74989 10.7984 3.24723 10.702 2.76228C10.6055 2.27732 10.3674 1.83187 10.0178 1.48223C9.66814 1.1326 9.22268 0.894501 8.73773 0.798038C8.25277 0.701575 7.75011 0.751083 7.29329 0.940302C6.83648 1.12952 6.44603 1.44995 6.17133 1.86108C5.89662 2.2722 5.75 2.75555 5.75 3.25V3.607M2.75 11.75H17.25C17.9422 11.75 18.6189 11.9553 19.1945 12.3399C19.7701 12.7244 20.2187 13.2711 20.4836 13.9106C20.7485 14.5502 20.8178 15.2539 20.6827 15.9328C20.5477 16.6118 20.2144 17.2354 19.7249 17.7249C19.2354 18.2144 18.6117 18.5477 17.9328 18.6828C17.2539 18.8178 16.5501 18.7485 15.9106 18.4836C15.2711 18.2187 14.7244 17.7701 14.3399 17.1945C13.9553 16.6189 13.75 15.9422 13.75 15.25V14.75"
+                  stroke="white"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                />
+                <path
+                  d="M0.75 8.75H17.25C17.9422 8.75 18.6189 8.54473 19.1945 8.16015C19.7701 7.77556 20.2187 7.22893 20.4836 6.58939C20.7485 5.94985 20.8178 5.24612 20.6827 4.56719C20.5477 3.88825 20.2144 3.26461 19.7249 2.77513C19.2354 2.28564 18.6117 1.9523 17.9328 1.81725C17.2539 1.6822 16.5501 1.75152 15.9106 2.01642C15.2711 2.28133 14.7244 2.72993 14.3399 3.30551C13.9553 3.88108 13.75 4.55777 13.75 5.25V5.75"
+                  stroke="white"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                />
+              </svg>
+              <p className="weather-details__title">Wind</p>
+              
             </div>
-            
-            </div>
-          <div className="weather-details__info-wrapper">
-<div className="weather-details__info">img <p className="weather-details__title">Humidity</p></div>
-            
+            <p  className="weather-details__designations" ><span className="weather-details__information" >{Math.round(data.current.wind_kph)}</span> km/h</p>
+            <p className="weather-details__status"> AM</p>
           </div>
           <div className="weather-details__info-wrapper">
-<div className="weather-details__info">img <p className="weather-details__title">UV index</p></div>
-
+            <div className="weather-details__info">
+              <svg
+                width="14"
+                height="19"
+                viewBox="0 0 14 19"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12.357 8.24439L7.38525 0.327388C7.31312 0.226145 7.21783 0.14361 7.10733 0.0866613C6.99683 0.0297126 6.87431 0 6.75 0C6.62569 0 6.50318 0.0297126 6.39267 0.0866613C6.28217 0.14361 6.18688 0.226145 6.11475 0.327388L1.1205 8.28264C0.427245 9.40182 0.0407977 10.6838 0 11.9996C0 13.7898 0.711159 15.5067 1.97703 16.7726C3.2429 18.0385 4.95979 18.7496 6.75 18.7496C8.54021 18.7496 10.2571 18.0385 11.523 16.7726C12.7888 15.5067 13.5 13.7898 13.5 11.9996C13.457 10.669 13.0626 9.37337 12.357 8.24439ZM6.75 17.2496C5.35822 17.2477 4.02402 16.6939 3.03988 15.7098C2.05574 14.7256 1.50198 13.3914 1.5 11.9996C1.54063 10.951 1.85561 9.93128 2.4135 9.04239L3.11475 7.92489L10.6702 15.4804C10.1794 16.0362 9.57614 16.4815 8.90031 16.7866C8.22447 17.0918 7.49153 17.2491 6.75 17.2496Z"
+                  fill="white"
+                />
+              </svg>
+              <p className="weather-details__title">Humidity</p>
+            </div>
+             <p className="weather-details__designations"><span  className="weather-details__information" >{Math.round(data.current.humidity)}</span> %</p>
+            <p className="weather-details__status"> {getHumidityStatus(Math.round(data.current.humidity))}</p>
           </div>
           <div className="weather-details__info-wrapper">
-            <div className="weather-details__info">img <p className="weather-details__title">Pressure</p></div>
+            <div className="weather-details__info">
+              <svg
+                width="22"
+                height="20"
+                viewBox="0 0 22 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M10.75 0.75V2.25M15.75 10.75C15.75 9.42392 15.2232 8.15215 14.2855 7.21447C13.3479 6.27678 12.0761 5.75 10.75 5.75C9.42392 5.75 8.15215 6.27678 7.21447 7.21447C6.27678 8.15215 5.75 9.42392 5.75 10.75M4.738 4.74L3.678 3.679M20.75 10.75H19.25M2.25 10.75H0.75M17.82 3.679L16.76 4.739M5.25 13.75V16.75C5.25 17.693 5.25 18.164 5.543 18.457C5.836 18.75 6.307 18.75 7.25 18.75C8.193 18.75 8.664 18.75 8.957 18.457C9.25 18.164 9.25 17.693 9.25 16.75V13.75M12.25 13.75L14.25 18.75L16.25 13.75"
+                  stroke="white"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <p className="weather-details__title">UV index</p>
+            </div>
+            <p className="weather-details__designations" ><span className="weather-details__information" >{Math.round(data.current.uv)}</span> UV</p>
+            <p className="weather-details__status"> {getUvStatus(Math.round(data.current.uv))}</p>
+          </div>
+          <div className="weather-details__info-wrapper">
+            <div className="weather-details__info">
+              <svg
+                width="22"
+                height="18"
+                viewBox="0 0 22 18"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M10.818 0C16.21 0 20.696 3.88 21.637 9C20.697 14.12 16.21 18 10.818 18C5.426 18 0.94 14.12 0 9C0.94 3.88 5.426 0 10.818 0ZM10.818 16C12.8576 15.9998 14.8368 15.3071 16.4315 14.0355C18.0261 12.7638 19.1419 10.9884 19.596 9C19.1406 7.01282 18.0245 5.23896 16.43 3.96854C14.8355 2.69813 12.8572 2.00635 10.8185 2.00635C8.77981 2.00635 6.80146 2.69813 5.207 3.96854C3.61254 5.23896 2.49636 7.01282 2.041 9C2.4951 10.9883 3.61067 12.7635 5.20514 14.0352C6.79961 15.3068 8.77853 15.9996 10.818 16ZM10.818 13.5C9.62453 13.5 8.47993 13.0259 7.63602 12.182C6.79211 11.3381 6.318 10.1935 6.318 9C6.318 7.80653 6.79211 6.66193 7.63602 5.81802C8.47993 4.97411 9.62453 4.5 10.818 4.5C12.0115 4.5 13.1561 4.97411 14 5.81802C14.8439 6.66193 15.318 7.80653 15.318 9C15.318 10.1935 14.8439 11.3381 14 12.182C13.1561 13.0259 12.0115 13.5 10.818 13.5ZM10.818 11.5C11.481 11.5 12.1169 11.2366 12.5858 10.7678C13.0546 10.2989 13.318 9.66304 13.318 9C13.318 8.33696 13.0546 7.70107 12.5858 7.23223C12.1169 6.76339 11.481 6.5 10.818 6.5C10.155 6.5 9.51907 6.76339 9.05023 7.23223C8.58139 7.70107 8.318 8.33696 8.318 9C8.318 9.66304 8.58139 10.2989 9.05023 10.7678C9.51907 11.2366 10.155 11.5 10.818 11.5Z"
+                  fill="white"
+                />
+              </svg>
+              <p className="weather-details__title">Pressure</p>
+            </div>
+             <p  className="weather-details__designations"><span className="weather-details__information">{Math.round(data.current.pressure_mb)}</span> hPa</p>
+            <p className="weather-details__status">{getPreasureStatus(Math.round(data.current.pressure_mb))}</p>
           </div>
         </div>
 
-        <div className="weather-details__right">right</div>
+        <div className="weather-details__right">
+<div className="weather-details__astro">
+<svg xmlns="http://www.w3.org/2000/svg" width="84" height="84" viewBox="0 0 512 512"><defs><linearGradient id="SVGeq4GoeLw" x1="150" x2="234" y1="119.2" y2="264.8" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#fbbf24"/><stop offset=".5" stop-color="#fbbf24"/><stop offset="1" stop-color="#f59e0b"/></linearGradient><clipPath id="SVGJOfocd6M"><path fill="none" d="M512 306H304l-35.9-31.4a18.4 18.4 0 0 0-24.2 0L208 306H0V0h512Z"/></clipPath><symbol id="SVG0a04Kbxn" viewBox="0 0 384 384"><circle cx="192" cy="192" r="84" fill="url(#SVGeq4GoeLw)" stroke="#f8af18" stroke-miterlimit="10" stroke-width="6"/><path fill="none" stroke="#fbbf24" stroke-linecap="round" stroke-miterlimit="10" stroke-width="24" d="M192 61.7V12m0 360v-49.7m92.2-222.5l35-35M64.8 319.2l35.1-35.1m0-184.4l-35-35m254.5 254.5l-35.1-35.1M61.7 192H12m360 0h-49.7"><animateTransform additive="sum" attributeName="transform" dur="6s" repeatCount="indefinite" type="rotate" values="0 192 192; 45 192 192"/></path></symbol></defs><g clip-path="url(#SVGJOfocd6M)"><use width="384" height="384" href="#SVG0a04Kbxn" transform="translate(64 100)"/></g><path fill="none" stroke="#374151" stroke-linecap="round" stroke-linejoin="round" stroke-width="18" d="M128 332h88l40-36l40 36h88"/></svg>
+
+
+
+
+ <div className="weather-details__astro-info"><p className="weather-details__astro-title">Sunrise</p> <span className="weather-details__astro-time">{data.forecast.forecastday[0].astro.sunrise}</span></div>
+</div>
+
+<div className="weather-details__astro">
+
+<svg xmlns="http://www.w3.org/2000/svg" width="84" height="84" viewBox="0 0 512 512"><defs><linearGradient id="SVGeq4GoeLw" x1="150" x2="234" y1="119.2" y2="264.8" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#fbbf24"/><stop offset=".5" stop-color="#fbbf24"/><stop offset="1" stop-color="#f59e0b"/></linearGradient><clipPath id="SVGzpDhEbnf"><path fill="none" d="M512 306H296a21.5 21.5 0 0 0-14 5.3L256 334l-26-22.7a21.5 21.5 0 0 0-14-5.3H0V0h512Z"/></clipPath><symbol id="SVG0a04Kbxn" viewBox="0 0 384 384"><circle cx="192" cy="192" r="84" fill="url(#SVGeq4GoeLw)" stroke="#f8af18" stroke-miterlimit="10" stroke-width="6"/><path fill="none" stroke="#fbbf24" stroke-linecap="round" stroke-miterlimit="10" stroke-width="24" d="M192 61.7V12m0 360v-49.7m92.2-222.5l35-35M64.8 319.2l35.1-35.1m0-184.4l-35-35m254.5 254.5l-35.1-35.1M61.7 192H12m360 0h-49.7"><animateTransform additive="sum" attributeName="transform" dur="6s" repeatCount="indefinite" type="rotate" values="0 192 192; 45 192 192"/></path></symbol></defs><g clip-path="url(#SVGzpDhEbnf)"><use width="384" height="384" href="#SVG0a04Kbxn" transform="translate(64 100)"/></g><path fill="none" stroke="#374151" stroke-linecap="round" stroke-linejoin="round" stroke-width="18" d="M128 332h88l40 36l40-36h88"/></svg>
+
+ <div className="weather-details__astro-info"><p className="weather-details__astro-title">Sunset</p> <span className="weather-details__astro-time">{data.forecast.forecastday[0].astro.sunset}</span></div>
+
+</div>
+
+        </div>
       </div>
     </section>
   );

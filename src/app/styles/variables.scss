@@ -1,16 +1,19 @@
-:root{
-//Borders
---br: 60px;
---br-main: 20px;
---font-main: "Inter", sans-serif ;
+:root {
+  //Fonts
+  --font-main: "Inter", sans-serif;
 
---bg-color-primary:rgba(209, 205, 205, 0.308);
-//Light Theme
+  //Borders
+  --br: 60px;
+  --br-main: 20px;
+  //Borders color
+  --br-color: rgba(112, 163, 204, 0.486);
 
-//Dark Theme
---drk-color-primary: rgba(30, 30, 30, 1);
---drk-color-secondary: ;
+  //Light Theme
+  //Colors
+  --bg-color-primary: rgba(255, 255, 255, 0.74);
+  --bg-color-secondary: rgba(202, 200, 200, 0.568);
 
-
-
+  //Dark Theme
+  --drk-color-primary: rgb(30, 30, 30);
+  --drk-color-secondary: ;
 }

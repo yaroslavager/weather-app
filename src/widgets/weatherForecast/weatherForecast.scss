@@ -7,4 +7,22 @@
     padding: 1.5rem;
     grid-column: span 2;
     }
+    &__time-wrapper{
+        display: flex;
+       gap: 0.5rem;
+     justify-content: center;
+     padding-top: 1rem;
+    }
+    &__info{
+
+        display: flex;
+        flex-direction: column;
+          justify-content: center;
+       align-items: center;
+       max-width: 110px;
+         border: 1px solid var(--br-color);
+         border-radius: var(--br-main);
+         padding: 1rem;
+         
+    }
 }
