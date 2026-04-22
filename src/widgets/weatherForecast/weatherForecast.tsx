@@ -12,9 +12,9 @@ console.log(filtredTime)
             <h3>Forecast</h3>
             <div  className="weather-forecast__time-wrapper">
 {filtredTime.map(time => (
-<div className="weather-forecast__info"><p>{time.time}</p>
+<div className="weather-forecast__info"><p >{time.time.split(" ")[1]}</p>
 <img src={time.condition.icon} />
-<p>{Math.round(time.temp_c)}&deg;C</p>
+<p className="weather-forecast__info-deg">{Math.round(time.temp_c)}&deg;C</p>
 </div>
 ))}
             </div>

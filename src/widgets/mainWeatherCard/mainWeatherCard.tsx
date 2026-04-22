@@ -30,7 +30,7 @@ function MainWeatherCard() {
       <div className="main-weather-card__info-wrapper">
         <div className="main-weather-card__left">
           <h2>{day}</h2>
-          <span>date</span>
+          <span>{data.location.localtime.split(" ")[0]}</span>
         </div>
         <div className="main-weather-card__right">
           <img className="main-weather-card__icon" src={data.current.condition.icon} /> 
