@@ -11,6 +11,7 @@ const handleSubmit=(e)=>{
 e.preventDefault()
 if(!inputValue.trim()) return
 fetchWeather(inputValue)
+setValue("")
 
 }
 console.log(inputValue)

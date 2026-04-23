@@ -10,7 +10,8 @@ body{
       font-size: 1rem;
       font-family: var(--font-main);
       max-width: 1400px;
-      background-color: rgba(140, 171, 238, 0.178);
+      background-color: var(--main-color);
+      color: var(--font-color);
 }
 p{
     margin: 0;

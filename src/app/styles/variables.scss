@@ -1,19 +1,29 @@
 :root {
   //Fonts
   --font-main: "Inter", sans-serif;
-
+ //Light Theme
   //Borders
   --br: 60px;
   --br-main: 20px;
   //Borders color
   --br-color: rgba(112, 163, 204, 0.486);
-
-  //Light Theme
   //Colors
+  --main-color: rgba(140, 171, 238, 0.178);
   --bg-color-primary: rgba(255, 255, 255, 0.74);
-  --bg-color-secondary: rgba(202, 200, 200, 0.568);
+//Font color
+--font-color: black;
+}
 
-  //Dark Theme
-  --drk-color-primary: rgb(30, 30, 30);
-  --drk-color-secondary: ;
+
+[data-theme="dark"]{
+
+//Dark Theme
+ --main-color: rgb(21, 24, 34);
+  --bg-color-primary: rgba(177, 177, 177, 0.137);
+//Border color
+  --br-color: rgba(128, 130, 131, 0.486);
+
+  
+  //Font color
+  --font-color: white;
 }
