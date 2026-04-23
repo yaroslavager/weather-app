@@ -1,12 +1,16 @@
 import { useState } from "react"
+import { useThemeStore } from "../../../shared/store/themeStore"
 import "./theme.scss"
 
 function Theme(){
-    const [theme, setTheme]=useState("light")
-    const changeTheme=()=>{
-        setTheme(theme==="light" ? "dark" : "light")
-    }
-    console.log(theme)
+    // const [theme, setTheme]=useState("light")
+    // const changeTheme=()=>{
+    //     setTheme(theme==="light" ? "dark" : "light")
+    // }
+    // console.log(theme)
+const changeTheme = useThemeStore((state)=> state.changeTheme)
+const theme= useThemeStore((state)=> state.theme)
+console.log(theme)
     return(
         <>
         <label className="theme__wrapper" htmlFor="theme">

@@ -1,9 +1,6 @@
 import {create} from 'zustand'
 import { GetWeather } from '../api/weather'
 
-
-
-
 export const useWeatherStore=create((set)=>({
 data: null,
 error: null,
