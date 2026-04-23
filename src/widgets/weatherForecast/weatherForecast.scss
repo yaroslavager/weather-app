@@ -23,6 +23,10 @@
          border: 1px solid var(--br-color);
          border-radius: var(--br-main);
          padding: 1rem;
+         gap: 0.4rem;
          
+    }
+    &__info-deg{
+      font-weight: bold;
     }
 }

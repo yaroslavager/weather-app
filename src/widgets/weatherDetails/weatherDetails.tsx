@@ -1,4 +1,4 @@
-import { useWeatherStore } from "../../features/search/modal/store";
+import { useWeatherStore } from "../../shared/store/store";
 
 import "./weatherDetails.scss";
 import { getPreasureStatus } from "./lib/getPreasureStatus";

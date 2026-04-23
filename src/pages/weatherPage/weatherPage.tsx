@@ -1,10 +1,11 @@
 import "./weatherPage.scss";
 import { useEffect } from "react";
-import { useWeatherStore } from "../../features/search/modal/store";
+import { useWeatherStore } from "../../shared/store/store";
 import Header from "../../widgets/header/header";
 import MainWeatherCard from "../../widgets/mainWeatherCard/mainWeatherCard";
 import WeatherDetails from "../../widgets/weatherDetails/weatherDetails";
 import WeatherForecast from "../../widgets/weatherForecast/weatherForecast";
+
 function WeatherPage() {
     const fetchWeather = useWeatherStore(state=>state.fetchWeather)
 useEffect(()=>{

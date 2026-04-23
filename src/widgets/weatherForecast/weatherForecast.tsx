@@ -1,5 +1,7 @@
-import { useWeatherStore } from "../../features/search/modal/store"
+import { useWeatherStore } from "../../shared/store/store"
 import "./weatherForecast.scss"
+import { getTime } from "./lib/getTime"
+
 function WeatherForecast(){
     const data=useWeatherStore(state=>state.data)
   if (!data || !data.forecast)return null  
@@ -12,9 +14,9 @@ console.log(filtredTime)
             <h3>Forecast</h3>
             <div  className="weather-forecast__time-wrapper">
 {filtredTime.map(time => (
-<div className="weather-forecast__info"><p>{time.time}</p>
+<div className="weather-forecast__info"><p >{getTime(time.time)}</p>
 <img src={time.condition.icon} />
-<p>{Math.round(time.temp_c)}&deg;C</p>
+<p className="weather-forecast__info-deg">{Math.round(time.temp_c)}&deg;C</p>
 </div>
 ))}
             </div>
