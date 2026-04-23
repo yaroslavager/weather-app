@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useWeatherStore } from "../modal/store";
+import { useWeatherStore } from "../../../shared/store/store";
 import "./search.scss";
 
 function Search() {

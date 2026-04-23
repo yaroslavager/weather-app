@@ -1,5 +1,5 @@
 import {create} from 'zustand'
-import { GetWeather } from "../../../shared/api/weather"
+import { GetWeather } from '../api/weather'
 
 
 

@@ -1,7 +1,6 @@
-import { useWeatherStore } from "../../features/search/modal/store";
-import { useEffect } from "react";
+import { useWeatherStore } from "../../shared/store/store";
 import "./mainWeatherCard.scss";
-
+import { getDate } from "./lib/getDate";
 function MainWeatherCard() {
 
   const data=useWeatherStore(state=> state.data)
@@ -30,7 +29,7 @@ function MainWeatherCard() {
       <div className="main-weather-card__info-wrapper">
         <div className="main-weather-card__left">
           <h2>{day}</h2>
-          <span>{data.location.localtime.split(" ")[0]}</span>
+          <span>{getDate(data.location.localtime)}</span>
         </div>
         <div className="main-weather-card__right">
           <img className="main-weather-card__icon" src={data.current.condition.icon} /> 
