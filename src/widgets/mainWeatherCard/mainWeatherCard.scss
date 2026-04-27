@@ -5,7 +5,7 @@
     border-radius: var(--br-main);
     width: auto;
     height: auto;
-    padding: 1.5rem;
+    padding: clamp(1rem, 0.7706rem + 0.9412vw, 1.5rem);
   }
   &__place {
     display: inline-block;
@@ -16,24 +16,27 @@
     border-radius: var(--br);
   }
   &__place-icon{
-    width: 24px;
+    width: auto;
    vertical-align: middle;
    margin-right: 0.5rem;
+  }
+  &__title{
+    font-size: clamp(1.5rem, 1.0412rem + 1.8824vw, 2.5rem) ;
   }
   &__info-wrapper{
     display: flex;
     width: auto;
-    gap: 2rem;
+    gap:  clamp(0rem, -0.9176rem + 3.7647vw, 2rem);
     padding-top: 1.5rem;
   }
   &__right{
     display: flex;
-    gap: 2rem;
-padding-top: 3rem;
+    gap:  clamp(0rem, -0.9176rem + 3.7647vw, 2rem);
+padding-bottom: 1rem;
   }
   &__icon{
-    width: 120px;
-    height: 120px;
+    width: clamp(5rem, 3.8529rem + 4.7059vw, 7.5rem);
+    height: clamp(5rem, 3.8529rem + 4.7059vw, 7.5rem);
   }
   &__degrees-wrapper{
     display: flex;
@@ -46,11 +49,23 @@ padding-top: 3rem;
   
   }
   &__main-degree{
-    font-size: 50px;
+    font-size: clamp(2.875rem, 1.0721rem + 3.2941vw, 4.625rem);
     font-weight: bold;
+  }
+  &__second-degree{
+    font-size: clamp(0.875rem, 0.8176rem + 0.2353vw, 1rem);
   }
   &__conditions-title{
     font-weight: bold;
     padding-bottom: 0.5rem;
   }
+    @media (max-width: 900px){
+        &__wrapper{
+            display: flex;
+            flex-direction: column;
+        }
+        &__info-wrapper{
+          justify-content: center;
+        }
+    }
 }

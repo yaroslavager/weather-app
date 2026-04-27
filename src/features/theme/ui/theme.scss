@@ -6,7 +6,7 @@ align-items: center;
 justify-content: space-around;
     flex-shrink: 0;
 width: 104px;
-height: 56px;
+height: clamp(2.8125rem, 2.4971rem + 1.2941vw, 3.5rem);
 background-color: var(--bg-color-primary);
 border-radius: var(--br);
 
@@ -25,7 +25,7 @@ border-radius: var(--br);
         position: absolute;
         cursor: pointer;
         width: 56px;
-        height: 56px;
+        height: clamp(2.8125rem, 2.4971rem + 1.2941vw, 3.5rem);
         background-color: rgba(131, 129, 129, 0.253);
         border-radius: var(--br);
         left: 0;

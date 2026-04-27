@@ -5,7 +5,7 @@ import Theme from "../../features/theme/ui/theme"
 function Header(){
     return(
     <div className="header__main-wrapper">
-        <h1>Good Morning</h1>
+        <h1 className="header__title">Good Morning</h1>
         <div className="header__widgets-wrapper"> 
              <Search/>  
              <Theme/>

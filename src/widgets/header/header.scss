@@ -5,6 +5,9 @@
         width: 100%;
           align-items: center;
     }
+    &__title{
+        font-size:clamp(1.25rem, -0.4132rem + 6.8235vw, 4.875rem);
+    }
     &__widgets-wrapper{
         display: flex;
 
