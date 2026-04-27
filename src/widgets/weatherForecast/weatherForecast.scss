@@ -4,7 +4,7 @@
     border-radius: var(--br-main);
     width: 100%;
     height: auto;
-    padding: 1.5rem;
+    padding: clamp(1rem, 0.7706rem + 0.9412vw, 1.5rem);
     grid-column: span 2;
     }
     &__time-wrapper{
@@ -12,6 +12,16 @@
        gap: 0.5rem;
      justify-content: center;
      padding-top: 1rem;
+     padding-bottom: 1rem;
+     overflow-x: scroll;
+     flex-shrink: 0 ;
+  &::-webkit-scrollbar {
+    height: 6px; 
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--br-color); 
+    border-radius: 10px;               
+  }
     }
     &__info{
 
@@ -28,5 +38,10 @@
     }
     &__info-deg{
       font-weight: bold;
+    }
+    @media (max-width: 900px){
+&__time-wrapper{
+  justify-content: flex-start;
+}
     }
 }

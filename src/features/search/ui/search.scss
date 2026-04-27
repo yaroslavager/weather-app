@@ -3,12 +3,13 @@
     display: flex;
     align-items: center;
 
-    height: 56px;
+    height: clamp(2.8125rem, 2.4971rem + 1.2941vw, 3.5rem);
     max-width: 400px;
     width: 100%;
     background-color: var(--bg-color-primary);
     border-radius: var(--br);
     padding: 1rem;
+    
   }
   &__input {
     max-width: 400px;
@@ -16,9 +17,17 @@
     background-color: transparent;
     border: none;
     padding: 1rem;
+    appearance: none;
+  -webkit-appearance: none;
+  color: var(--font-color);
+
+
     &:focus{
           outline: none;
+          background: none;
+      background-color: transparent; 
     }
+
   }
  
 }

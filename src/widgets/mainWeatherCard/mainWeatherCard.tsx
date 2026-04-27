@@ -28,7 +28,7 @@ function MainWeatherCard() {
       </div>
       <div className="main-weather-card__info-wrapper">
         <div className="main-weather-card__left">
-          <h2>{day}</h2>
+          <h2 className="main-weather-card__title">{day}</h2>
           <span>{getDate(data.location.localtime)}</span>
         </div>
         <div className="main-weather-card__right">

@@ -41,6 +41,7 @@ const fetchWeather=useWeatherStore(state=>state.fetchWeather)
           id="input"
           type="text"
           placeholder="Search your location"
+          autoComplete="off"
         />
       </label>
 
