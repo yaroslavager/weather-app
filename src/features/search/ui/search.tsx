@@ -4,17 +4,17 @@ import "./search.scss";
 
 function Search() {
     const [inputValue, setValue]=useState("")
-const changeInput=(e)=>{
+const changeInput=(e: React.ChangeEvent<HTMLInputElement>)=>{
     setValue(e.target.value)
 }
-const handleSubmit=(e)=>{
+const handleSubmit=(e : React.FormEvent<HTMLFormElement>)=>{
 e.preventDefault()
 if(!inputValue.trim()) return
 fetchWeather(inputValue)
 setValue("")
 
 }
-console.log(inputValue)
+
 const fetchWeather=useWeatherStore(state=>state.fetchWeather)
   return (
     <form onSubmit={handleSubmit}>

@@ -14,7 +14,7 @@ console.log(forecast_url)
 return data
 }
 catch(error){
-throw new Error(error)
+throw (error)
 
 }
 } 
