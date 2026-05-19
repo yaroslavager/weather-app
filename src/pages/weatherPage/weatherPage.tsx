@@ -7,18 +7,18 @@ import WeatherDetails from "../../widgets/weatherDetails/weatherDetails";
 import WeatherForecast from "../../widgets/weatherForecast/weatherForecast";
 
 function WeatherPage() {
-    const fetchWeather = useWeatherStore(state=>state.fetchWeather)
-useEffect(()=>{
-  fetchWeather("Tbilisi")
-
-},[]);
+  const fetchWeather = useWeatherStore((state) => state.fetchWeather);
+  
+  useEffect(() => {
+    fetchWeather("Tbilisi");
+  }, []);
   return (
     <div className="weather-page__container">
       <Header />
       <main className="weather-page__wrapper">
-      <MainWeatherCard />
-      <WeatherDetails/>
-<WeatherForecast/>
+        <MainWeatherCard />
+        <WeatherDetails />
+        <WeatherForecast />
       </main>
     </div>
   );
