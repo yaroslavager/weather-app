@@ -1,6 +1,7 @@
 import { useWeatherStore } from "../../shared/store/store";
 import "./mainWeatherCard.scss";
 import { getDate } from "./lib/getDate";
+
 function MainWeatherCard() {
 
   const data=useWeatherStore(state=> state.data)
